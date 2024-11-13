@@ -1,7 +1,7 @@
 // ROCK PAPER SCISSORS PROJECT
 var getUserChoice = function (userInput){
     userInput = userInput.toLowerCase();
-    if (userInput === "rock" || userInput === "paper" || userInput === "scissors"){
+    if (userInput === "rock" || userInput === "paper" || userInput === "scissors" || userInput === "bomb"){
         return userInput;
     } else {
         return "Please make a valid selection: Rock, paper, or scissors";
@@ -51,14 +51,19 @@ function determineWinner (userChoice, computerChoice){
             return "You lose. Rock beats scissors.";
         }
     }
+// BOMB
+    if (userChoice === "bomb"){
+        return "You win! Bombs beats ALL";
+    }
 } 
 
 function playGame () {
     var computerChoice = getComputerChoice();
-    var userChoice = getUserChoice("paper");
-    
+    var userChoice = getUserChoice("bomb");
+
     console.log("User Choice:", userChoice);
     console.log("Computer Choice:", computerChoice);
     console.log(determineWinner(userChoice, computerChoice));
 
 }
+
